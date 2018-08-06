@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import uuid from 'uuid';
+import PropTypes from 'prop-types'
 
 class AddProject extends Component {
   constructor(){
@@ -18,6 +20,7 @@ class AddProject extends Component {
       // console.log('submited');
       this.setState({
             newProject:{
+              id:uuid.v4(),
               title:this.refs.title.value,
               category:this.refs.category.value
             }
@@ -54,5 +57,11 @@ class AddProject extends Component {
     );
   }
 }
+
+// Validating component properties
+AddProject.propTypes = {
+  categories : PropTypes.array,
+  addProject : PropTypes.func
+};
 
 export default AddProject;
